@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <title>add url</title>
+  </head>
+  <style>
+
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'arial', sans-serif;
+    }
+
+    section{
+      position: relative;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .logo{
+      width: 20%;
+      margin-right: 5%;
+    }
+
+    section .main{
+      width: 60%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+    }
+
+    section .main .addBox{
+      position: relative;
+      width: 100%;
+      direction: rtl;
+    }
+
+    section .main .addBox .add{
+      width: 100%;
+      padding: 2%;
+      padding-left: 10%;
+      padding-right: 5%;
+      border-radius: 50px;
+      border: 1px solid #ccc;
+      outline: none;
+      font-size: 16px;
+      direction: ltr;
+    }
+
+    section .main .addBox .icon{
+      position: absolute;
+      top: 0;
+      width: 10%;
+      height: 100%;
+      display: flex;
+      padding: 12px 20px;
+      justify-content: space-between;
+      align-items: center;
+      /* pointer-events: none; */
+      background-color: transparent;
+      outline: none;
+      border: none;
+    }
+
+    .btnimg{
+      width: 100%;
+      height: 100%;
+    }
+
+    .alertSuccess,
+    .alertError{
+      position: absolute;
+      top: 10%;
+      left: 30%;
+      width: 40%;
+      text-align: center;
+      border-radius: 10px;
+      padding: 4% 2%;
+    }
+
+    .alertSuccess{
+      background-color: lightblue;
+    }
+
+    .alertError{
+      background-color: lightpink;
+    }
+  </style>
+  <body>
+    <section>
+      <div th:if="${param.error}">
+        <div class="alertError">
+          oops, there is a problem !
+        </div>
+      </div>
+      <div th:if="${param.addUrlsuccess}">
+        <div class="alertSuccess">
+          congratulations, url added correctly !
+        </div>
+      </div>
+      <div th:if="${param.deleteUrlsuccess}">
+        <div class="alertSuccess">
+          congratulations, url removed correctly!
+        </div>
+      </div>
+      <div th:if="${param.updateUrlsuccess}">
+        <div class="alertSuccess">
+          congratulations, url updated correctly!
+        </div>
+      </div>
+      <div class="main">
+        <img src="img/googlelogo.png" class="logo" alt="google">
+        <form class="addBox" th:action="@{/addUrl}" method="post">
+          <input type="text" class="add" name="url" value="" placeholder="you can add, remove or update url here">
+          <button class="icon" type="submit" name="add_button" style="right: 12%;">
+            <img src="img/plus.png" class="btnimg" alt="">
+          </button>
+          <button class="icon" type="submit" name="delete_button" style="right: 6%;">
+            <img src="img/minus.png" class="btnimg" alt="">
+          </button>
+          <button class="icon" type="submit" name="update_button">
+            <img src="img/exchange.png" class="btnimg" alt="">
+          </button>
+        </form>
+      </div>
+    </section>
+  </body>
+</html>
