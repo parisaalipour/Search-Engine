@@ -1,0 +1,67 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'arial', sans-serif;
+}
+
+section{
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.logo{
+  width: 20%;
+  margin-right: 5%;
+}
+
+section .main{
+  width: 60%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+section .main .addBox{
+  position: relative;
+  width: 100%;
+  direction: rtl;
+}
+
+section .main .addBox .add{
+  width: 100%;
+  padding: 2%;
+  padding-left: 10%;
+  padding-right: 5%;
+  border-radius: 50px;
+  border: 1px solid #ccc;
+  outline: none;
+  font-size: 16px;
+  direction: ltr;
+}
+
+section .main .addBox .icon{
+  position: absolute;
+  top: 0;
+  width: 10%;
+  height: 100%;
+  display: flex;
+  padding: 12px 20px;
+  justify-content: space-between;
+  align-items: center;
+  /* pointer-events: none; */
+  background-color: transparent;
+  outline: none;
+  border: none;
+}
+
+.add_img{
+  width: 100%;
+  height: 100%;
+}
